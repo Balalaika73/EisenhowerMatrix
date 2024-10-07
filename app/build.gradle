@@ -5,6 +5,7 @@ plugins {
 }
 
 android {
+    namespace "com.example.eisenhowermatrix"
     compileSdk 34
 
     defaultConfig {
@@ -36,6 +37,7 @@ android {
 }
 
 dependencies {
+    def room_version = "2.6.1"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
@@ -59,9 +61,9 @@ dependencies {
 
 
     // Room dependencies
-    implementation "androidx.room:room-runtime:2.5.2"
-    kapt "androidx.room:room-compiler:2.5.2"
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
 
     // using Kotlin Coroutines with Room
-    implementation "androidx.room:room-ktx:2.5.2"
+    implementation "androidx.room:room-ktx:$room_version"
 }

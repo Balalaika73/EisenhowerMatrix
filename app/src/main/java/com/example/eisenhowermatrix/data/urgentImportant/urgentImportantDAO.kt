@@ -12,8 +12,8 @@ interface urgentImportantDAO {
     @Delete
     suspend fun deleteUrgentImportant(urgentImportant: UrgentImportantEnt)
 
-    @Query("DELETE FROM UrgentImportant WHERE id = :ctgId")
-    suspend fun deleteUrgentImportantById(ctgId: Int)
+    @Query("DELETE FROM UrgentImportant WHERE urgImpId = :urgImpId")
+    suspend fun deleteUrgentImportantById(urgImpId: Int)
 
     @Update
     suspend fun updateUrgentImportant(urgentImportant: UrgentImportantEnt)
@@ -22,6 +22,6 @@ interface urgentImportantDAO {
     @Query("SELECT * FROM UrgentImportant ORDER BY position DESC")
     fun getAllUrgentImportant(): Flow<List<UrgentImportantEnt>> // Использование Flow для наблюдения за изменениями
 
-    @Query("SELECT * FROM UrgentImportant WHERE id = :categoryId LIMIT 1")
+    @Query("SELECT * FROM UrgentImportant WHERE urgImpId = :urgentImportantId LIMIT 1")
     suspend fun getUrgentImportantById(urgentImportantId: Int): UrgentImportantEnt?
 }
